@@ -5,7 +5,7 @@ using System.Xml;
 
 namespace HebrewReader.Lexicons
 {
-    public class Lexicon
+    internal class Lexicon
     {
         public readonly Dictionary<string, string> Lexemes;
 

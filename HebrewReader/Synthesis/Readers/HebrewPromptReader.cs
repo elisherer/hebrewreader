@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace HebrewReader.Synthesis.Readers
 {
-    public static class HebrewPromptReader
+    internal static class HebrewPromptReader
     {
         private static readonly Regex Token = new Regex(@"[\s,\.:;]+", RegexOptions.Compiled);
         private static readonly Regex Tokenizer = new Regex(@"[\s,\.:;]+|[^\s,\.:;]+", RegexOptions.Compiled);
