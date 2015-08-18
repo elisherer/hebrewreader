@@ -40,21 +40,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extensions\StringExtenstions.cs" />
     <Compile Include="Synthesis\HebrewPrompt.cs" />
     <Compile Include="Synthesis\HebrewPromptBuilder.cs" />
     <Compile Include="Synthesis\HebrewSpeechSynthesizer.cs" />
-    <Compile Include="Synthesis\Hebrewtize\Hebrewtizer.cs" />
-    <Compile Include="Synthesis\Hebrewtize\IHebrewtizer.cs" />
-    <Compile Include="Synthesis\Hebrewtize\NumberHebrewtizer.cs" />
+    <Compile Include="Synthesis\Readers\IHebrewPromptReader.cs" />
+    <Compile Include="Synthesis\Readers\HebrewPromptNumberReader.cs" />
     <Compile Include="Lexicons\Lexicon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Synthesis\Readers\HebrewPromptReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Synthesis\Readers\HebrewPromptWordReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Lexicons\hebrew-numbers.pls" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Lexicons\hebrew-dictionary.pls" />
+    <Content Include="Lexicons\hebrew-words.pls" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

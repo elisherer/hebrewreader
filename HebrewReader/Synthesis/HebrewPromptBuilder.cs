@@ -1,14 +1,11 @@
 ﻿using System.Globalization;
 using System.Speech.Synthesis;
-using HebrewReader.Extensions;
-using HebrewReader.Synthesis.Hebrewtize;
+using HebrewReader.Synthesis.Readers;
 
 namespace HebrewReader.Synthesis
 {
     public class HebrewPromptBuilder : PromptBuilder
     {
-        private PromptBuilder _promptBuilder;
-
         #region Constructors
 
         public HebrewPromptBuilder() 
@@ -24,13 +21,15 @@ namespace HebrewReader.Synthesis
         public HebrewPromptBuilder(string textToSpeak)
             : this()
         {
-            foreach (var word in textToSpeak.Tokenize())
-            {
-                AppendText(word);
-            }
+            AppendText(textToSpeak);
         }
 
         #endregion
+
+        internal void BaseAppendText(string textToSpeak)
+        {
+            base.AppendText(textToSpeak);
+        }
 
         #region Methods
 
@@ -38,26 +37,26 @@ namespace HebrewReader.Synthesis
 
         public new void AppendText(string textToSpeak)
         {
-            var hebrewtized = Hebrewtizer.Hebrewtize(textToSpeak);
-            base.AppendText(hebrewtized);
+            HebrewPromptReader.ReadInto(this, textToSpeak);
         }
 
         public new void AppendText(string textToSpeak, PromptRate rate)
         {
-            var hebrewtized = Hebrewtizer.Hebrewtize(textToSpeak);
-            base.AppendText(hebrewtized, rate);
+            HebrewPromptReader.ReadInto(this, textToSpeak);
         }
 
         public new void AppendText(string textToSpeak, PromptVolume volume)
         {
-            var hebrewtized = Hebrewtizer.Hebrewtize(textToSpeak);
-            base.AppendText(hebrewtized, volume);
+            StartStyle(new PromptStyle(volume));
+            HebrewPromptReader.ReadInto(this, textToSpeak);
+            EndStyle();
         }
 
         public new void AppendText(string textToSpeak, PromptEmphasis emphasis) 
         {
-            var hebrewtized = Hebrewtizer.Hebrewtize(textToSpeak);
-            base.AppendText(hebrewtized, emphasis);
+            StartStyle(new PromptStyle(emphasis));
+            HebrewPromptReader.ReadInto(this, textToSpeak);
+            EndStyle();
         }
 
         //public new void StartStyle (PromptStyle style)
@@ -95,6 +94,11 @@ namespace HebrewReader.Synthesis
         //public new void AppendTextWithHint (string textToSpeak, string sayAs) 
 
         //public new void AppendTextWithPronunciation (string textToSpeak, string pronunciation)
+        
+        public void AppendTextWithPronunciation (string grapheme, Lexicons.Lexicon lexicon)
+        {
+            AppendTextWithPronunciation(grapheme, lexicon.Lexemes[grapheme]);
+        }
 
         //public new void AppendTextWithAlias (string textToSpeak, string substitute) 
 
