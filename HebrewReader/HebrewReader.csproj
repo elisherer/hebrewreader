@@ -56,7 +56,7 @@
     <EmbeddedResource Include="Lexicons\hebrew-numbers.pls" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Lexicons\hebrew-words.pls" />
+    <EmbeddedResource Include="Lexicons\hebrew-words.pls" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

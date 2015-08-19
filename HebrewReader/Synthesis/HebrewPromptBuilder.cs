@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using System.Speech.Synthesis;
+using HebrewReader.Lexicons;
 using HebrewReader.Synthesis.Readers;
 
 namespace HebrewReader.Synthesis
@@ -95,9 +96,11 @@ namespace HebrewReader.Synthesis
 
         //public new void AppendTextWithPronunciation (string textToSpeak, string pronunciation)
         
-        public void AppendTextWithPronunciation (string grapheme, Lexicons.Lexicon lexicon)
+        internal void AppendTextWithPronunciation (string grapheme, Lexicon lexicon)
         {
-            AppendTextWithPronunciation(grapheme, lexicon.Lexemes[grapheme]);
+            string phoneme;
+            if (!lexicon.Lexemes.TryGetValue(grapheme, out phoneme)) phoneme = "bip";
+            AppendTextWithPronunciation(grapheme, phoneme);
         }
 
         //public new void AppendTextWithAlias (string textToSpeak, string substitute) 

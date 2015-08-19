@@ -16,11 +16,9 @@
         
         You should have received a copy of the GNU General Public License
         along with this program.  If not, see <http://www.gnu.org/licenses/>.  -->
-<lexicon version="1.0" alphabet="ipa" xml:lang="he">
- <lexeme>
-  <grapheme/>
-   <phoneme/>
- </lexeme>
+<lexicon version="1.0" xmlns="http://www.w3.org/2005/01/pronunciation-lexicon" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd"
+    alphabet="ipa" xml:lang="he">
  <lexeme>
   <grapheme>א"י</grapheme>
    <phoneme>ʔ"i</phoneme>
