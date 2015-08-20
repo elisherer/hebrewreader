@@ -42,7 +42,7 @@
   <lexeme>
       <grapheme>שתיים</grapheme>
       <grapheme>Shtuh yim</grapheme>
-      <phoneme>ʃtaʔim</phoneme>
+      <phoneme>ʃtaim</phoneme>
   </lexeme>
   <lexeme>
       <grapheme>שלוש</grapheme>
@@ -137,7 +137,7 @@
   <lexeme>
       <grapheme>שניים</grapheme>
       <grapheme>Shnaim</grapheme>
-      <phoneme>ʃnaʔim</phoneme>
+      <phoneme>ʃnaim</phoneme>
   </lexeme>
   <lexeme>
       <grapheme>שלושה</grapheme>
