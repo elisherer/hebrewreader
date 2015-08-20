@@ -1,2 +1,6 @@
 *.suo
 *.user
+HebrewReaderGUI/bin/*
+HebrewReaderGUI/obj/*
+HebrewReader/bin/*
+HebrewReader/obj/*
